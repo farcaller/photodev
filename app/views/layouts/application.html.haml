@@ -1,0 +1,41 @@
+!!! 5
+%html
+  %head
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = yield(:head)
+  %body.with-header
+    .topbar{:data => {:dropdown => "dropdown"}}
+      .fill
+        .container
+          %h3= link_to 'photo.dev', root_path
+          - if 'user_signed_in?'
+            %ul.nav
+              %li{:class => (controller_name == 'photostreams' ? 'active' : '')}= link_to "Photostream", 'photostream_path'
+              %li{:class => (controller_name == 'collections' ? 'active' : '')}= link_to "Collections", 'collections_path'
+            
+            %ul.nav.secondary-nav
+              %li.dropdown
+                %a.dropdown-toggle{:href => "#"}= 'current_user.email'
+                %ul.dropdown-menu
+                  %li= link_to "Preferences", 'edit_user_registration_path'
+                  %li.divider
+                  %li= link_to "Sign out", 'destroy_user_session_path', :method => :delete
+          - else
+            %ul.nav.secondary-nav
+              %li= link_to "Sign up", 'new_user_registration_path'
+              %li= link_to "Sign in", 'new_user_session_path'
+    .container
+      - flash.each do |name, msg|
+        %div{:id => "flash_#{name}", :class => "alert-message #{name} fade in", :data => {:alert => "alert"}}
+          %a.close{:href => "#"}×
+          %p= msg
+
+      = content_tag :h1, yield(:title) if show_title?
+      = yield
+      %footer
+        %p
+          &copy; Hack&amp;Dev.org
+          = Time.now.year
