@@ -32,7 +32,6 @@ end
 
 group :test, :development do
   gem 'pry'
-  gem 'pry-doc'
 end
 
 group :development do
