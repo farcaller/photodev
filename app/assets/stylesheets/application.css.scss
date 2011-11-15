@@ -5,3 +5,24 @@
  *= require_self
  *= require_tree . 
 */
+
+@import "bootstrap";
+
+body {
+	padding-top: 60px;
+	
+	background-image: url(/assets/fancy_deboss.png);
+	background-color: #F7F7F7;
+	
+}
+
+a.thumbnail-ref {
+    background-color: #ffffff;
+    text-align: center;
+    color: #333333;
+}
+
+a.thumbnail-ref:hover {
+    background-color: #ffffff;
+    text-decoration: none;
+}
