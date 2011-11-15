@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me
   
+  has_one :photostream, :dependent => :destroy
+  
+  after_create :create_photostream
+  
   validates :username, :presence => true, :length => {:minimum => 3}, :uniqueness => true
   
   protected

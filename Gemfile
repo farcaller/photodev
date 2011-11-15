@@ -27,4 +27,14 @@ group :test do
   gem 'guard-cucumber'
   gem 'rb-fsevent'
   gem 'growl_notify'
+  gem 'launchy'
+end
+
+group :test, :development do
+  gem 'pry'
+  gem 'pry-doc'
+end
+
+group :development do
+  gem 'pry-doc'
 end

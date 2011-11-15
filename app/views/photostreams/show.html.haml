@@ -1,0 +1,13 @@
+- title "Photostream"
+
+- content_for :head do
+  = stylesheet_link_tag "photostreams"
+  = javascript_include_tag "photostreams"
+
+%ul#photos.media-grid
+  -#- for photo in @stream.photos
+  -#  %li
+  -#    %a.thumbnail-ref{:href => photo_path(photo)}= image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
+  -#%li
+  -#  %a.thumbnail-ref{:href => new_photo_path}
+  -#    %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}
