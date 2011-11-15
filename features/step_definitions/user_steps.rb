@@ -51,7 +51,7 @@ Then /^I should see login error$/ do
   page.should have_content('Invalid email or password')
 end
 
-Given /^I am logged in as "([^"]*)" and password "([^"]*)"$/ do |arg1, arg2|
+Given /^I am logged in as "([^"]*)" and password "([^"]*)"$/ do |username, password|
   steps %Q{
     Given there is user "#{username}" registered with email "test@user.net"
     And I sign in with "#{username}" and password "#{password}"

@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'twitter_bootstrap_form_for'
+gem 'devise'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

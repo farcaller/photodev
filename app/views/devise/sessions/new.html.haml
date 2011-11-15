@@ -1,0 +1,17 @@
+- title "Sign in", false
+
+= twitter_bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  = f.inputs 'Sign in' do
+    = f.text_field :login
+
+    = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      = f.toggles 'Remember me' do
+        = f.check_box :remember_me
+
+  = f.actions do
+    = f.submit 'Sign in'
+    = link_to 'Sign up', new_user_registration_path, :class => 'btn'
+
+= render :partial => "devise/shared/links"
