@@ -16,4 +16,13 @@ end
 group :test do
   gem 'turn', :require => false
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'rb-fsevent'
+  gem 'growl_notify'
 end
