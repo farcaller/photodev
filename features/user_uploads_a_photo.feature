@@ -1,4 +1,3 @@
-@wip
 Feature: User uploads a photo
 
   As a registered user
