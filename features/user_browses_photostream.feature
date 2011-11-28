@@ -1,5 +1,5 @@
-@working
 Feature: User browses photostream
+
   As a registered user
   I want to see my photostream
   To get access to all uploaded photos
