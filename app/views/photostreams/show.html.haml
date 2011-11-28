@@ -5,9 +5,9 @@
   = javascript_include_tag "photostreams"
 
 %ul#photos.media-grid
-  -#- for photo in @stream.photos
-  -#  %li
-  -#    %a.thumbnail-ref{:href => photo_path(photo)}= image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
-  -#%li
-  -#  %a.thumbnail-ref{:href => new_photo_path}
-  -#    %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}
+  - for photo in @stream.photos
+    %li
+      %a.thumbnail-ref{:href => 'photo_path(photo)'}= image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
+  %li
+    %a.thumbnail-ref{:href => new_photo_path, :title => 'Upload Photo'}
+      %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}
