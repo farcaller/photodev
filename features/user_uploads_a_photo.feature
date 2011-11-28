@@ -15,4 +15,5 @@ Feature: User uploads a photo
     And I attach a test image
     And I click on button "Upload Photo"
     Then I should be on my photostream page
+    And I should see a flash with text "Photo was successfully created"
     And I should see "1" photo in photostream
