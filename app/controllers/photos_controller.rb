@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :authorize_user_for_photos
+  before_filter :authenticate_user!
   
   def new
     @photo = current_photostream.photos.build
@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
   end
 
   protected
-  def authorize_user_for_photos
+  def authenticate_user!
     redirect_to(new_user_session_path, :notice => 'You must sign in to upload photos.') and return unless user_signed_in?
   end
 end
