@@ -1,23 +1,20 @@
 class CollectionsController < ApplicationController
+  load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
+  load_and_authorize_resource :only => :show
+  
   def index
-    @collections = current_user.collections.all
   end
 
   def show
-    @collection = current_user.collections.find(params[:id])
   end
 
   def new
-    @collection = current_user.collections.build
   end
 
   def edit
-    @collection = current_user.collections.find(params[:id])
   end
 
   def create
-    @collection = current_user.collections.build(params[:collection])
-
     if @collection.save
       redirect_to collection_url(@collection), :notice => 'Collection was successfully created.'
     else
@@ -26,8 +23,6 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    @collection = current_user.collections.find(params[:id])
-
     if @collection.update_attributes(params[:collection])
       redirect_to @collection, :notice => 'Collection was successfully updated.'
     else
@@ -36,9 +31,12 @@ class CollectionsController < ApplicationController
   end
 
   def destroy
-    @collection = Collection.find(params[:id])
     @collection.destroy
 
     redirect_to collections_url
+  end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to new_user_session_url, :alert => 'You must sign in to manage collections'
   end
 end
