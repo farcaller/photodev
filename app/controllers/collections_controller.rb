@@ -19,7 +19,7 @@ class CollectionsController < ApplicationController
     @collection = current_user.collections.build(params[:collection])
 
     if @collection.save
-      redirect_to collections_url, :notice => 'Collection was successfully created.'
+      redirect_to collection_url(@collection), :notice => 'Collection was successfully created.'
     else
       render :action => "new"
     end

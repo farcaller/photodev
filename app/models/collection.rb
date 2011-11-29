@@ -4,4 +4,6 @@ class Collection < ActiveRecord::Base
   has_many :photos, :through => :photo_in_collections
   
   attr_accessible :title, :public
+  
+  validates :title, :public, :presence => true
 end
