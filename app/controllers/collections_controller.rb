@@ -24,7 +24,7 @@ class CollectionsController < ApplicationController
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    if exception.action == :show and exception.subject.user != current_user
+    if exception.action == :show and current_user and exception.subject.user != current_user
       redirect_to root_url, :alert => 'You cannot access this collection'
     else
       redirect_to new_user_session_url, :alert => 'You must sign in to access collections'
