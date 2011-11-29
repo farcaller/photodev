@@ -21,3 +21,7 @@ end
 When /^I navigate to "([^"]*)" path$/ do |controller|
   visit send("#{controller.downcase}_path".to_sym)
 end
+
+When /^I choose "([^"]*)"$/ do |radio|
+  choose radio
+end
