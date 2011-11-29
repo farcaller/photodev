@@ -10,7 +10,3 @@ end
 Then /^I should see a flash with text "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
-
-When /^navigate to Photostream$/ do
-  visit photostream_path
-end

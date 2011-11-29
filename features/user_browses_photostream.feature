@@ -13,6 +13,6 @@ Feature: User browses photostream
     Then I should be on my photostream page
   
   Scenario: Redirect to sign in page for anonymous users
-    When navigate to Photostream
+    When I navigate to "photostream" path
     Then I should be on sign in page
     And I should see a flash with text "You must sign in to access your photostream"

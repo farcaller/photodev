@@ -13,3 +13,11 @@ end
 When /^I click on button "([^"]*)"$/ do |button|
   click_button button
 end
+
+Then /^I should see an error "([^"]*)" for field "([^"]*)"$/ do |error, field|
+  find(:xpath, find_field(field).path + '/../span').should have_content(error)
+end
+
+When /^I navigate to "([^"]*)" path$/ do |controller|
+  visit send("#{controller.downcase}_path".to_sym)
+end
