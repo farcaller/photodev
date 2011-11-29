@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   load_and_authorize_resource
-
+  
   def create
     if @collection.save
       redirect_to collection_url(@collection), :notice => 'Collection was successfully created.'
@@ -24,6 +24,10 @@ class CollectionsController < ApplicationController
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to new_user_session_url, :alert => 'You must sign in to manage collections'
+    if exception.action == :show and exception.subject.user != current_user
+      redirect_to root_url, :alert => 'You cannot access this collection'
+    else
+      redirect_to new_user_session_url, :alert => 'You must sign in to access collections'
+    end
   end
 end
