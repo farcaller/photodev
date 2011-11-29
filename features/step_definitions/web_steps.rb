@@ -25,3 +25,7 @@ end
 When /^I choose "([^"]*)"$/ do |radio|
   choose radio
 end
+
+Then /^I should be on index page$/ do
+  current_path.should == root_path
+end
