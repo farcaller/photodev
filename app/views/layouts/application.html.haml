@@ -14,7 +14,7 @@
           - if user_signed_in?
             %ul.nav
               %li{:class => (controller_name == 'photostreams' ? 'active' : '')}= link_to "Photostream", photostream_path
-              %li{:class => (controller_name == 'collections' ? 'active' : '')}= link_to "Collections", 'collections_path'
+              %li{:class => (controller_name == 'collections' ? 'active' : '')}= link_to "Collections", collections_path
             
             %ul.nav.secondary-nav
               %li.dropdown

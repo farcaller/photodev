@@ -1,0 +1,11 @@
+= twitter_bootstrap_form_for(@collection) do |f|
+  = f.inputs do
+    = f.text_field :title
+    
+    = f.toggles 'Access' do
+      = f.radio_button :public, 'Allow access only to you', false, :checked => true
+      = f.radio_button :public, 'Allow access by anonymous users', true
+  
+  = f.actions do
+    = f.submit
+    = link_to 'Cancel', collections_path, :class => 'btn'

@@ -1,0 +1,14 @@
+- title "#{@collection.title} Collection"
+
+- content_for :head do
+  = javascript_include_tag "collections"
+  = stylesheet_link_tag "collections"
+
+.row
+  .span11
+    TBD
+    -#= render :partial => 'photo_collections/photos_list'
+  .span5
+    .well
+      = link_to 'Edit', edit_collection_path(@collection), :class => 'btn'
+      = link_to 'Remove collection', @collection, :confirm => 'Really delete?', :method => :delete, :class => ['btn', 'danger']

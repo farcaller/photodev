@@ -1,0 +1,15 @@
+- title "Collections", false
+
+%ul.media-grid
+  - for collection in @collections
+    %li
+      %a.thumbnail-ref{:href => collection_path(collection)}
+        = collection.title
+        - if collection.photos.first
+          = image_tag collection.photos.first.image_url(:thumb).to_s, :class => 'thumbnail'
+        - else
+          = image_tag '/assets/view_collection.png', :class => 'thumbnail'
+  %li
+    %a.thumbnail-ref{:href => new_collection_path}
+      New collection
+      %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}

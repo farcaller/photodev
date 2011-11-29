@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me
   
   has_one :photostream, :dependent => :destroy
+  has_many :collections, :dependent => :destroy
   
   after_create :create_photostream
   
