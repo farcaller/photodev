@@ -30,6 +30,6 @@ Feature: User uploads a photo
     And the photo with index "1" should have title "test title"
   
   Scenario: Redirect to sign in page for anonymous users
-    When I navigate to "photo_new" path
+    When I navigate to "new_photo" path
     Then I should be on sign in page
     And I should see a flash with text "You must sign in to upload photos"
