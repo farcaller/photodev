@@ -5,5 +5,5 @@ class Collection < ActiveRecord::Base
   
   attr_accessible :title, :public
   
-  validates :title, :public, :presence => true
+  validates :title, :presence => true
 end
