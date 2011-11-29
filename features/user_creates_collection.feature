@@ -26,13 +26,11 @@ Feature: User creates collection
     And I click on button "Create Collection"
     Then I should be on the page for collection titled "test collection"
   
-  @wip
   Scenario: Redirect to sign in page for anonymous users
     When I navigate to "new_collection" path
     Then I should be on sign in page
     And I should see a flash with text "You must sign in to manage collections"
   
-  @wip
   Scenario: Fail to create a collection without a title
     Given I am logged in as "testuser" and password "helloworld"  
     When I click on link "Collections"
