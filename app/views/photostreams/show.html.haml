@@ -5,9 +5,12 @@
   = javascript_include_tag "photostreams"
 
 .row
-  .span3.buttons
-    =link_to 'Upload Photo', new_photo_path, :class => 'btn'
-    %a#manage{:class => 'btn'}= 'Manage Photos'
+  .span3
+    #modes.buttons
+      =link_to 'Upload Photo', new_photo_path, :class => 'btn'
+      %a#manage{:class => 'btn', :href => '#'}= 'Manage Photos'
+    #operations
+      %p#selection-info
   .span13
     %ul#photos.media-grid
       - for photo in @stream.photos

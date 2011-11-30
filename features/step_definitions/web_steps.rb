@@ -29,3 +29,12 @@ end
 Then /^I should be on index page$/ do
   current_path.should == root_path
 end
+
+Then /^I should see "([^"]*)"$/ do |text|
+  page.should have_content(text)
+end
+
+When /^I stop and debug$/ do
+  save_and_open_page
+  binding.pry
+end
