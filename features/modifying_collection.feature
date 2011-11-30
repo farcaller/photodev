@@ -1,4 +1,4 @@
-@wip
+@todo
 Feature: User modifies collection
 
   As a registered user
