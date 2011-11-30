@@ -4,11 +4,13 @@
   = stylesheet_link_tag "photostreams"
   = javascript_include_tag "photostreams"
 
-%ul#photos.media-grid
-  - for photo in @stream.photos
-    %li
-      %a.thumbnail-ref{:href => 'photo_path(photo)', :title => photo.title}
-        = image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
-  %li
-    %a.thumbnail-ref{:href => new_photo_path, :title => 'Upload Photo'}
-      %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}
+.row
+  .span3.buttons
+    =link_to 'Upload Photo', new_photo_path, :class => 'btn'
+    %a#manage{:class => 'btn'}= 'Manage Photos'
+  .span13
+    %ul#photos.media-grid
+      - for photo in @stream.photos
+        %li
+          %a.photo.thumbnail-ref{:href => 'photo_path(photo)', :title => photo.title}
+            = image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'

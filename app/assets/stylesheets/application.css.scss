@@ -26,3 +26,19 @@ a.thumbnail-ref:hover {
     background-color: #ffffff;
     text-decoration: none;
 }
+
+div.buttons a {
+	display: block;
+	width: 80%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div.buttons a:first-child {
+	margin-top: 1px;
+}
+
+a.selected {
+	border-color: #003399;
+	border-style: dashed;
+}
