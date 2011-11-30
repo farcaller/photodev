@@ -57,4 +57,6 @@ Photodev::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.photo_upload_prefix = 'uploads'
 end
