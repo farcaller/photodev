@@ -4,7 +4,7 @@ When /^I attach a test image$/ do
 end
 
 Then /^I should see "([^"]*)" photo(|s) in photostream$/ do |number_of_photos, unused|
-  all('ul#photos li').count.should == number_of_photos.to_i+1
+  all('ul#photos li').count.should == number_of_photos.to_i
 end
 
 Then /^the photo with index "([^"]*)" should have title "([^"]*)"$/ do |index, title|
