@@ -2,6 +2,12 @@ class CollectionsController < ApplicationController
   load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
   load_and_authorize_resource :only => :show
   
+  respond_to :html, :json
+  
+  def index
+    respond_with(@collections)
+  end
+  
   def create
     if @collection.save
       redirect_to collection_url(@collection), :notice => 'Collection was successfully created.'
