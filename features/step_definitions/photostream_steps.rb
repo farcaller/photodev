@@ -18,3 +18,7 @@ end
 Then /^the photo with title "([^"]*)" should not be selected$/ do |title|
   find_link(title)[:class].should_not include("selected")
 end
+
+Then /^I should see a link for collection named "([^"]*)"$/ do |title|
+  all(:xpath, "//div[@id='collections']/a[@title='#{title}']").length.should == 1
+end

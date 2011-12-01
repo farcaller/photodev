@@ -22,3 +22,12 @@ Feature: Managing photostream
     And the photo with title "photo 2" should not be selected
     And the photo with title "photo 3" should be selected
   
+  @javascript
+  Scenario: See a list of collection in photostream
+    Given I create a private collection named "test private"
+    Given I create a public collection named "test public"
+    When I click on link "Photostream"
+    And I click on link "Manage Photos"
+    Then I should see a link for collection named "test private"
+    And I should see a link for collection named "test public"
+  
