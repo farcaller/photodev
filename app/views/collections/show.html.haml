@@ -6,8 +6,12 @@
 
 .row
   .span11
-    TBD
-    -#= render :partial => 'photo_collections/photos_list'
+    %ul#photos.media-grid
+      - for pc in @collection.photo_in_collections.all
+        %li
+          %a.thumbnail-ref{:href => 'photo_path(pc.photo)'}
+            = image_tag pc.photo.image_url(:thumb).to_s, :class => 'thumbnail'
+    &nbsp;
   .span5
     .well
       = link_to 'Edit', edit_collection_path(@collection), :class => 'btn'
