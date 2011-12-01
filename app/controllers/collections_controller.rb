@@ -1,6 +1,7 @@
 class CollectionsController < ApplicationController
   load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource :only => :show
+  load_and_authorize_resource :id_param => :collection_id, :through => :current_user, :only => [:append_photos]
+  load_and_authorize_resource :only => [:show]
   
   respond_to :html, :json
   
@@ -28,6 +29,18 @@ class CollectionsController < ApplicationController
     @collection.destroy
 
     redirect_to collections_url
+  end
+  
+  def append_photos
+    photos = Photo.where(:photostream_id => current_photostream).find(params[:photo_ids])
+    photos.each do |photo|
+      if not @collection.photos.include?(photo)
+        @collection.photos << photo
+      end
+    end
+    @collection.save
+    
+    respond_with @collection, :location => @collection
   end
   
   rescue_from CanCan::AccessDenied do |exception|

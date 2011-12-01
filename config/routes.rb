@@ -1,7 +1,9 @@
 Photodev::Application.routes.draw do
   resource :photostream, :only => [:show]
   resources :photos, :only => [:new, :create]
-  resources :collections
+  resources :collections do
+    post :append_photos
+  end
 
   devise_for :users
 

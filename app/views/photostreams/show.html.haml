@@ -17,5 +17,5 @@
     %ul#photos.media-grid
       - for photo in @stream.photos
         %li
-          %a.photo.thumbnail-ref{:href => 'photo_path(photo)', :title => photo.title}
+          %a.photo.thumbnail-ref{:href => 'photo_path(photo)', :title => photo.title, :data => {:id => photo.id}}
             = image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
