@@ -1,5 +1,3 @@
-Managing = false
-
 updateSelectionCount = ->
 	count = $("#photos .selected").length
 	selectionInfo = $("#selection-info")
@@ -24,16 +22,20 @@ updateCollectionsList = ->
 		$("#collections").html(items.join(''))
 
 jQuery ->
-	$("#manage").click ->
-		Managing = !Managing
-		$(this).text if Managing then "Done" else "Manage Photos"
-		$(this).toggleClass "primary", Managing
+	$("#manage").click (e) ->
+		e.preventDefault()
+		$(this).hide()
+		$("#manage-done").show()
+
+		updateCollectionsList()
+		$("#photos .photo").unbind("click").click toggleSelectPhoto
+	
+	$("#manage-done").click (e) ->
+		e.preventDefault()
+		$(this).hide()
+		$("#manage").show()
 		
-		if Managing
-			updateCollectionsList()
-			$("#photos .photo").unbind("click").click toggleSelectPhoto
-		else
-			$("#photos .photo").unbind("click").removeClass "selected"
-			updateSelectionCount()
-			$("#collections").html("")
+		$("#photos .photo").unbind("click").removeClass "selected"
+		updateSelectionCount()
+		$("#collections").html("")
 	
