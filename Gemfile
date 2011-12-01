@@ -38,4 +38,8 @@ end
 
 group :development do
   gem 'pry-doc'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'linecache19', '0.5.13'
+  gem 'ruby-debug-base19', '0.11.26'
+  gem 'pry_debug'
 end
