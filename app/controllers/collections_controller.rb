@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
+  load_and_authorize_resource :only => :show
   
   def create
     if @collection.save
