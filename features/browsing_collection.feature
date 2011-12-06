@@ -27,7 +27,6 @@ Feature: User browses collection
     And I click on link "test private"
     Then I should be on the page for collection titled "test private"
   
-
   Scenario: Browse a public collection of other user when anonymous
     Given I am logged in as "testuser" and password "helloworld"
     When I create a public collection named "test public" and store its path

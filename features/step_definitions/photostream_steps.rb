@@ -3,6 +3,10 @@ Then /^I should be on my photostream page$/ do
   page.should have_selector('ul#photos')
 end
 
+Then /^I should see (\d+) photo(|s) in (photostream|collection)$/ do |number_of_photos, unused1, unused2|
+  all('ul#photos li').count.should == number_of_photos.to_i
+end
+
 Then /^I should be on sign in page$/ do
   current_path.should == new_user_session_path
 end

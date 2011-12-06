@@ -15,7 +15,7 @@ Feature: User uploads a photo
     And I click on button "Upload Photo"
     Then I should be on my photostream page
     And I should see a flash with text "Photo was successfully created"
-    And I should see "1" photo in photostream
+    And I should see 1 photo in photostream
   
   Scenario: Succesfully upload a photo with title
     Given I am logged in as "testuser" and password "helloworld"  
@@ -26,7 +26,7 @@ Feature: User uploads a photo
     And I click on button "Upload Photo"
     Then I should be on my photostream page
     And I should see a flash with text "Photo was successfully created"
-    And I should see "1" photo in photostream
+    And I should see 1 photo in photostream
     And the photo with index "1" should have title "test title"
   
   Scenario: Fail to upload non-supported image type

@@ -32,3 +32,18 @@ end
 Then /^I shoud see a collection named "([^"]*)"$/ do |name|
   all('ul#collections li').map {|t| t.has_content?(name) ? t : nil}.compact[0].should_not be_nil
 end
+
+When /^I add photo named "([^"]*)" to collection "([^"]*)"$/ do |photo, collection|
+  steps %Q{
+    When I click on link "Photostream"
+    And I click on link "Manage Photos"
+    And I click on link "#{photo}"
+    And I wait 2 seconds
+    And I click on link "#{collection}"
+  }
+end
+
+Then /^I should see a link "([^"]*)"$/ do |link_name|
+  find_link(link_name).should_not be_nil
+end
+
