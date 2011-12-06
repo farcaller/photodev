@@ -3,6 +3,7 @@ Photodev::Application.routes.draw do
   resources :photos, :only => [:new, :create]
   resources :collections do
     post :append_photos
+    post :remove_photos
   end
 
   devise_for :users

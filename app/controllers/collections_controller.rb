@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource :id_param => :collection_id, :through => :current_user, :only => [:append_photos]
+  load_and_authorize_resource :id_param => :collection_id, :through => :current_user, :only => [:append_photos, :remove_photos]
   load_and_authorize_resource :only => [:show]
   
   respond_to :html, :json
@@ -36,6 +36,18 @@ class CollectionsController < ApplicationController
     photos.each do |photo|
       if not @collection.photos.include?(photo)
         @collection.photos << photo
+      end
+    end
+    @collection.save
+    
+    respond_with @collection, :location => @collection
+  end
+  
+  def remove_photos
+    photo_in_collections = PhotoInCollection.find(params[:photo_ids])
+    photo_in_collections.each do |pc|
+      if @collection.photo_in_collections.include?(pc)
+        @collection.photo_in_collections.delete(pc)
       end
     end
     @collection.save
