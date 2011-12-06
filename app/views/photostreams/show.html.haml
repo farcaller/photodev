@@ -6,13 +6,14 @@
 
 .row
   .span3
-    #modes.buttons
+    #modes.buttons.well
       =link_to 'Upload Photo', new_photo_path, :class => 'btn'
       %a#manage{:class => 'btn', :href => '#'}= 'Manage Photos'
       %a#manage-done{:class => 'btn primary', :href => '#', :style => 'display: none;'}= 'Done'
-    #operations
-      %p#selection-info
-    #collections
+    .well
+      #operations
+        %p#selection-info
+      #collections
   .span13
     %ul#photos.media-grid
       - for photo in @stream.photos
