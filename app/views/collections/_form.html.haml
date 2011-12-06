@@ -8,4 +8,8 @@
   
   = f.actions do
     = f.submit
-    = link_to 'Cancel', @collection.new_record? ? collections_path : @collection, :class => 'btn'
+    - if @collection.new_record?
+      = link_to 'Cancel', collections_path, :class => 'btn'
+    - else
+      = link_to 'Cancel', @collection, :class => 'btn'
+      = link_to 'Remove', @collection, :confirm => 'Really delete?', :method => :delete, :class => ['btn', 'danger'], :style => 'float:right;'
