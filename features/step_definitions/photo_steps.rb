@@ -1,6 +1,5 @@
 When /^I attach a test image$/ do
-  file = File.join(Rails.root, 'features', 'fixtures', 'horo.jpeg')
-  attach_file 'Image', file
+  steps %Q{When I attach "horo.jpeg" to upload field named "Image"}
 end
 
 Then /^I should see "([^"]*)" photo(|s) in photostream$/ do |number_of_photos, unused|
@@ -24,8 +23,7 @@ Given /^I upload a test photo with title "([^"]*)"$/ do |title|
 end
 
 When /^I attach a random data$/ do
-  file = File.join(Rails.root, 'features', 'fixtures', 'random.data')
-  attach_file 'Image', file
+  steps %Q{When I attach "random.data" to upload field named "Image"}
 end
 
 Then /^I should be on upload photo page$/ do

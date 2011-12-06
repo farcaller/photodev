@@ -38,3 +38,8 @@ When /^I stop and debug$/ do
   save_and_open_page
   binding.pry
 end
+
+When /^I attach "([^"]*)" to upload field named "([^"]*)"$/ do |file_name, field|
+  file = File.join(Rails.root, 'features', 'fixtures', file_name)
+  attach_file field, file
+end
