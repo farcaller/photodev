@@ -8,4 +8,4 @@
   
   = f.actions do
     = f.submit
-    = link_to 'Cancel', collections_path, :class => 'btn'
+    = link_to 'Cancel', @collection.new_record? ? collections_path : @collection, :class => 'btn'
