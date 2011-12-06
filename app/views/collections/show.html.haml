@@ -5,14 +5,16 @@
   = stylesheet_link_tag "collections"
 
 .row
-  .span11
+  .span3
+    #modes.buttons.well
+      %a#manage{:class => 'btn', :href => '#'}= 'Manage Photos'
+      #edit-modes{:style => 'display: none;'}
+        = link_to 'Edit Properties', edit_collection_path(@collection), :class => 'btn'
+        %a#manage-done{:class => 'btn primary', :href => '#'}= 'Done'
+  .span13
     %ul#photos.media-grid
       - for pc in @collection.photo_in_collections.all
         %li
           %a.thumbnail-ref{:href => 'photo_path(pc.photo)'}
             = image_tag pc.photo.image_url(:thumb).to_s, :class => 'thumbnail'
     &nbsp;
-  .span5
-    .well
-      = link_to 'Edit', edit_collection_path(@collection), :class => 'btn'
-      = link_to 'Remove collection', @collection, :confirm => 'Really delete?', :method => :delete, :class => ['btn', 'danger']
