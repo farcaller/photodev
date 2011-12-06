@@ -29,6 +29,15 @@ Feature: User uploads a photo
     And I should see "1" photo in photostream
     And the photo with index "1" should have title "test title"
   
+  Scenario: Fail to upload non-supported image type
+    Given I am logged in as "testuser" and password "helloworld"  
+    When I click on link "Photostream"
+    And I click on link "Upload Photo"
+    And I attach a random data
+    And I click on button "Upload Photo"
+    Then I should be on upload photo page
+    And I should see "You are not allowed to upload"
+  
   Scenario: Redirect to sign in page for anonymous users
     When I navigate to "new_photo" path
     Then I should be on sign in page

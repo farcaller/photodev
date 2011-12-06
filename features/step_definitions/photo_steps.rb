@@ -22,3 +22,12 @@ Given /^I upload a test photo with title "([^"]*)"$/ do |title|
     And I click on button "Upload Photo"
   }
 end
+
+When /^I attach a random data$/ do
+  file = File.join(Rails.root, 'features', 'fixtures', 'random.data')
+  attach_file 'Image', file
+end
+
+Then /^I should be on upload photo page$/ do
+  current_path.should == photos_path
+end
