@@ -1,16 +1,4 @@
-updateSelectionCount = ->
-	count = $("#photos .selected").length
-	selectionInfo = $("#selection-info")
-	switch count
-		when 0 then selectionInfo.text ""
-		when 1 then selectionInfo.text count + " photo selected"
-		else selectionInfo.text count + " photos selected"
-
-toggleSelectPhoto = (e) ->
-			e.preventDefault()
-			selected = $(this).hasClass "selected"
-			$(this).toggleClass "selected", !selected
-			updateSelectionCount()
+photoOps = new PhotoOps("#selection-info")
 
 updateCollectionsList = ->
 	$.getJSON "/collections.json", (data) ->
@@ -37,14 +25,13 @@ jQuery ->
 		$("#manage-done").show()
 
 		updateCollectionsList()
-		$("#photos .photo").unbind("click").click toggleSelectPhoto
+		photoOps.enableSelection()
 	
 	$("#manage-done").click (e) ->
 		e.preventDefault()
 		$(this).hide()
 		$("#manage").show()
 		
-		$("#photos .photo").unbind("click").removeClass "selected"
-		updateSelectionCount()
+		photoOps.disableSelection()
 		$("#collections").html("")
 	
