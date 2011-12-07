@@ -40,6 +40,6 @@ When /^I stop and debug$/ do
 end
 
 When /^I attach "([^"]*)" to upload field named "([^"]*)"$/ do |file_name, field|
-  file = File.join(Rails.root, 'features', 'fixtures', file_name)
+  file = File.expand_path(File.join(Rails.root, 'features', 'fixtures', file_name))
   attach_file field, file
 end
