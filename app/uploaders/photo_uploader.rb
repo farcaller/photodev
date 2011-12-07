@@ -15,8 +15,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_and_pad => [90, 90, '#ffffff']
   end
   
-  version :mini do
-    process :resize_to_limit => [620, 620]
+  version :browser do
+    process :resize_to_limit => [760, 760]
   end
   
   version :full do
