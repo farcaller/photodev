@@ -28,7 +28,6 @@ Feature: Managing photostream
     Given I create a public collection named "test public"
     When I click on link "Photostream"
     And I click on link "Manage Photos"
-    And I wait 2 seconds
     Then I should see a link for collection named "test private"
     And I should see a link for collection named "test public"
   

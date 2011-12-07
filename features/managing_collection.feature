@@ -18,7 +18,6 @@ Feature: User manages collection
     And I click on link "Manage Photos"
     And I click on link "photo 1"
     And I click on link "photo 3"
-    And I wait 2 seconds
     And I click on link "test collection"
     And I navigate to stored collection path
     Then I should see 2 photos in collection

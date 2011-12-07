@@ -43,7 +43,3 @@ When /^I attach "([^"]*)" to upload field named "([^"]*)"$/ do |file_name, field
   file = File.join(Rails.root, 'features', 'fixtures', file_name)
   attach_file field, file
 end
-
-When /^I wait (\d+) second(|s)$/ do |time, unused|
-  sleep(time.to_i)
-end
