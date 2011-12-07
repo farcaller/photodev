@@ -3,7 +3,7 @@ Given /^I navigate to index page$/ do
 end
 
 When /^I click on link "([^"]*)"$/ do |link|
-  click_on link
+  click_link link
 end
 
 When /^I fill in "([^"]*)" with "([^"]*)"$/ do |field, data|
