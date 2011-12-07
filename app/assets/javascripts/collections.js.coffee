@@ -5,7 +5,8 @@ removePhotosFromCollection = (e) ->
 	selected_items = $('#photos .selected').map ->
 		$(this).data('id')
 	$.post $(this).data('remove_photos_path'), {photo_ids: selected_items.get()}, (data) ->
-		console.log(data)
+		$("#photos").replaceWith(Mustache.to_html($("#photo_template").html(), data))
+		photoOps.enableSelection()
 
 jQuery ->
 	$("#manage").click (e) ->
