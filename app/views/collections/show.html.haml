@@ -17,9 +17,6 @@
         %a#remove-photos{:class => 'btn danger', :href => '#',
           :data => {:remove_photos_path => collection_remove_photos_path(@collection) + '.json'}}= 'Remove from collection'
   .span13
-    %ul#photos.media-grid
-      - for pc in @collection.photo_in_collections.all
-        %li
-          %a.thumbnail-ref.photo{:href => 'photo_path(pc.photo)', :data => {:id => pc.id}}
-            = image_tag pc.photo.image_url(:thumb).to_s, :class => 'thumbnail'
-    &nbsp;
+    %script{:type => "text/html", :id => "photo_template"}= render "photos_list"
+    = render "photos_list", :mustache => @collection
+
