@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mustache'
 gem 'uuidtools'
+gem 'acts_as_list', :git => 'https://github.com/swanandp/acts_as_list.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

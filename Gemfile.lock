@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/swanandp/acts_as_list.git
+  revision: 7fd29b74eec9327a3d2a3033e1ca249ba04fc7e5
+  specs:
+    acts_as_list (0.1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -232,6 +238,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list!
   bootstrap-sass
   cancan
   capybara
