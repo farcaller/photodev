@@ -24,5 +24,5 @@ Then /^the photo with title "([^"]*)" should not be selected$/ do |title|
 end
 
 Then /^I should see a link for collection named "([^"]*)"$/ do |title|
-  all(:xpath, "//div[@id='collections']/a[@title='#{title}']").length.should == 1
+  page.should have_xpath("//div[@id='collections']/a[@title='#{title}']")
 end
