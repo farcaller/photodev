@@ -9,6 +9,13 @@ class CollectionsController < ApplicationController
     respond_with(@collections)
   end
   
+  def show
+    respond_to do |format|
+      format.html { @collection }
+      format.json { render json: @collection }
+    end
+  end
+  
   def create
     if @collection.save
       redirect_to collection_url(@collection), :notice => 'Collection was successfully created.'
@@ -40,7 +47,10 @@ class CollectionsController < ApplicationController
     end
     @collection.save
     
-    respond_with @collection, :location => @collection
+    respond_to do |format|
+      format.html { redirect_to @collection }
+      format.json { render json: @collection }
+    end
   end
   
   def remove_photos
@@ -52,7 +62,10 @@ class CollectionsController < ApplicationController
     end
     @collection.save
     
-    respond_with @collection, :location => @collection
+    respond_to do |format|
+      format.html { redirect_to @collection }
+      format.json { render json: @collection }
+    end
   end
   
   rescue_from CanCan::AccessDenied do |exception|

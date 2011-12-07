@@ -6,4 +6,12 @@ class Collection < ActiveRecord::Base
   attr_accessible :title, :public
   
   validates :title, :presence => true
+  
+  def to_json(options)
+    super :include => {
+      :photo_in_collections => {
+          :include => :photo
+      }
+    }
+  end
 end
