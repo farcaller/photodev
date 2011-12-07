@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20111129144054) do
 
   add_index "collections", ["user_id"], :name => "index_collections_on_user_id"
 
-  create_table "photo_in_collections", :force => true do |t|
+  create_table "photo_in_collections", :id => false, :force => true do |t|
+    t.string   "uuid",          :limit => 36
     t.integer  "collection_id"
     t.integer  "photo_id"
     t.datetime "created_at"

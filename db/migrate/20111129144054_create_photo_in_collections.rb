@@ -1,6 +1,8 @@
 class CreatePhotoInCollections < ActiveRecord::Migration
   def change
-    create_table :photo_in_collections do |t|
+    create_table :photo_in_collections, :id => false do |t|
+      t.string :uuid, :limit => 36, :primary => true
+      
       t.references :collection
       t.references :photo
 

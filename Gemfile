@@ -11,6 +11,7 @@ gem 'cancan'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mustache'
+gem 'uuidtools'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
