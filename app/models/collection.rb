@@ -10,7 +10,8 @@ class Collection < ActiveRecord::Base
   def to_json(options)
     super :include => {
       :photo_in_collections => {
-          :include => :photo
+          :include => :photo,
+          :methods => :url
       }
     }
   end
