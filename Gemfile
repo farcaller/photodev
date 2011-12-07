@@ -10,6 +10,7 @@ gem 'devise'
 gem 'cancan'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'mustache'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

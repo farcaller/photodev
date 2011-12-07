@@ -6,5 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-// disabled require_tree .
+//= require mustache
 //= require bootstrap
+
+// disabled require_tree .

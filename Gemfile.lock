@@ -118,6 +118,7 @@ GEM
     mini_magick (3.3)
       subexec (~> 0.1.0)
     multi_json (1.0.3)
+    mustache (0.99.4)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     polyglot (0.3.3)
@@ -248,6 +249,7 @@ DEPENDENCIES
   launchy
   linecache19 (= 0.5.13)
   mini_magick
+  mustache
   pry
   pry-doc
   pry_debug
