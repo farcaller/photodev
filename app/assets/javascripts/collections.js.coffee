@@ -1,4 +1,17 @@
+class SortableOps
+	constructor: ->
+		
+	enableSorting: =>
+		$("#photos").sortable
+			update: @updateOrder
+		$("#photos").sortable 'option', 'disabled', false
+	disableSorting: =>
+		$("#photos").sortable 'option', 'disabled', true
+	updateOrder: (evt, ui) =>
+		
+
 photoOps = new PhotoOps("#selection-info")
+sortableOps = new SortableOps()
 
 removePhotosFromCollection = (e) ->
 	e.preventDefault()
@@ -15,6 +28,7 @@ jQuery ->
 		$("#edit-modes").show()
 		
 		photoOps.enableSelection()
+		sortableOps.enableSorting()
 	
 	$("#manage-done").click (e) ->
 		e.preventDefault()
@@ -22,5 +36,6 @@ jQuery ->
 		$("#manage").show()
 	
 		photoOps.disableSelection()
+		sortableOps.disableSorting()
 	
 	$("#remove-photos").unbind("click").click removePhotosFromCollection

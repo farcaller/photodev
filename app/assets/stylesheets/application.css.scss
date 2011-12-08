@@ -39,3 +39,14 @@ a.selected {
 	border-color: #003399;
 	border-style: dashed;
 }
+
+ul.media-grid {
+    list-style-type: none;
+		li {
+			display: list-item;
+	    float: left;
+	    width: 120px;
+	    height: 120px;
+			position: relative;
+		}
+}
