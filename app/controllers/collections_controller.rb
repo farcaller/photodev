@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   load_and_authorize_resource :through => :current_user, :only => [:index, :new, :edit, :create, :update, :destroy]
-  load_and_authorize_resource :id_param => :collection_id, :through => :current_user, :only => [:append_photos, :remove_photos]
+  load_and_authorize_resource :id_param => :collection_id, :through => :current_user, :only => [:append_photos, :remove_photos, :reorder_photo]
   load_and_authorize_resource :only => [:show]
   
   respond_to :html, :json
@@ -61,6 +61,20 @@ class CollectionsController < ApplicationController
       end
     end
     @collection.save
+    
+    respond_to do |format|
+      format.html { redirect_to @collection }
+      format.json { render json: @collection }
+    end
+  end
+  
+  def reorder_photo
+    photo_in_collection = PhotoInCollection.find(params[:uuid])
+    photo_in_collection.position = params[:position]
+    photo_in_collection.save!
+    
+    @collection.photo_in_collections.reload
+    @collection.photos.reload
     
     respond_to do |format|
       format.html { redirect_to @collection }

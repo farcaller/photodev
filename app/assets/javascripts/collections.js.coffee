@@ -8,7 +8,23 @@ class SortableOps
 	disableSorting: =>
 		$("#photos").sortable 'option', 'disabled', true
 	updateOrder: (evt, ui) =>
-		
+		item = $(ui.item)
+		dstIndex = item.index()
+		++dstIndex
+		@postRequest item.find('a').attr('href')+'.json', 'PUT'
+			position: dstIndex
+	postRequest: (url, type, data) =>
+		@disableSorting()
+		$.ajax
+			dataType: 'json'
+			type: type
+			url: url
+			data: if data then data else ''
+			complete: =>
+				@enableSorting()
+			success: (data, textStatus, jqXHR) =>
+				$("#photos").replaceWith(Mustache.to_html($("#photo_template").html(), data))
+				photoOps.enableSelection()
 
 photoOps = new PhotoOps("#selection-info")
 sortableOps = new SortableOps()
