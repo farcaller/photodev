@@ -59,4 +59,6 @@ Photodev::Application.configure do
   config.active_support.deprecation = :notify
   
   config.photo_upload_prefix = 'uploads'
+  
+  config.action_mailer.default_url_options = { :host => 'photodev.org' }
 end
