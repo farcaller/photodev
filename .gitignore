@@ -8,3 +8,4 @@ public/*uploads
 public/assets
 rerun.txt
 config/database.yml
+config/mongodb_logger.yml

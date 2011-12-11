@@ -1,3 +1,5 @@
+require 'mongodb_logger/server'
+
 Photodev::Application.routes.draw do
   resource :photostream, :only => [:show]
   resources :photos, :only => [:new, :create]
@@ -18,4 +20,6 @@ Photodev::Application.routes.draw do
   end
 
   root :to => 'home#index'
+  
+  mount MongodbLogger::Server.new, :at => '/logserver'
 end

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  include MongodbLogger::Base
+  
   def current_photostream
     current_user.photostream if current_user
   end
