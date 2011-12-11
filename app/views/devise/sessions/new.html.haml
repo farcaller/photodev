@@ -12,6 +12,7 @@
 
   = f.actions do
     = f.submit 'Sign in'
-    = link_to 'Sign up', new_user_registration_path, :class => 'btn'
+    - unless Rails.env.production?
+      = link_to 'Sign up', new_user_registration_path, :class => 'btn'
 
 = render :partial => "devise/shared/links"
