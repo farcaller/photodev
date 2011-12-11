@@ -1,3 +1,5 @@
+//= require photo_ops
+
 class SortableOps
 	constructor: ->
 		

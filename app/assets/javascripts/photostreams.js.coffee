@@ -1,3 +1,5 @@
+//= require photo_ops
+
 photoOps = new PhotoOps("#selection-info")
 
 updateCollectionsList = ->
