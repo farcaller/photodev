@@ -1,13 +1,22 @@
 - title "Photostream"
 
 - content_for :head do
+  = javascript_include_tag "photo_ops", "photostreams"
   = stylesheet_link_tag "photostreams"
-  = javascript_include_tag "photostreams"
 
-%ul#photos.media-grid
-  -#- for photo in @stream.photos
-  -#  %li
-  -#    %a.thumbnail-ref{:href => photo_path(photo)}= image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'
-  -#%li
-  -#  %a.thumbnail-ref{:href => new_photo_path}
-  -#    %img#addphoto.thumbnail{:src => '/assets/add_photo.png'}
+.row
+  .span3
+    #modes.buttons.well
+      =link_to 'Upload Photo', new_photo_path, :class => 'btn'
+      %a#manage{:class => 'btn', :href => '#'}= 'Manage Photos'
+      %a#manage-done{:class => 'btn primary', :href => '#', :style => 'display: none;'}= 'Done'
+    .well
+      #operations
+        %p#selection-info
+      #collections
+  .span13
+    %ul#photos.media-grid
+      - for photo in @stream.photos
+        %li
+          %a.photo.thumbnail-ref{:href => 'photo_path(photo)', :title => photo.title, :data => {:id => photo.id}}
+            = image_tag photo.image_url(:thumb).to_s, :class => 'thumbnail'

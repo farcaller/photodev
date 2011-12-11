@@ -8,6 +8,13 @@ gem 'bootstrap-sass'
 gem 'twitter_bootstrap_form_for'
 gem 'devise'
 gem 'cancan'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'mustache'
+gem 'uuidtools'
+gem 'acts_as_list', :git => 'https://github.com/swanandp/acts_as_list.git'
+gem 'capistrano'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

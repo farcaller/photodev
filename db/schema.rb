@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111115145622) do
+ActiveRecord::Schema.define(:version => 20111208120313) do
+
+  create_table "collections", :force => true do |t|
+    t.string   "title",      :null => false
+    t.boolean  "public",     :null => false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collections", ["user_id"], :name => "index_collections_on_user_id"
+
+  create_table "photo_in_collections", :id => false, :force => true do |t|
+    t.string   "uuid",          :limit => 36
+    t.integer  "collection_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+  end
+
+  add_index "photo_in_collections", ["collection_id"], :name => "index_photo_in_collections_on_collection_id"
+  add_index "photo_in_collections", ["photo_id"], :name => "index_photo_in_collections_on_photo_id"
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "photostream_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photostreams", :force => true do |t|
     t.integer  "user_id",    :null => false

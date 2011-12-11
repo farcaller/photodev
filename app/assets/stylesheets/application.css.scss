@@ -11,18 +11,42 @@
 body {
 	padding-top: 60px;
 	
-	background-image: url(/assets/fancy_deboss.png);
 	background-color: #F7F7F7;
-	
 }
 
 a.thumbnail-ref {
-    background-color: #ffffff;
-    text-align: center;
-    color: #333333;
+	background-color: #ffffff;
+	text-align: center;
+	color: #333333;
+	
+	&:hover {
+		text-decoration: none;
+	}
 }
 
-a.thumbnail-ref:hover {
-    background-color: #ffffff;
-    text-decoration: none;
+div.buttons a {
+	display: block;
+	width: 80%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	
+	&:first-child {
+		margin-top: 1px;
+	};
+}
+
+a.selected {
+	border-color: #003399;
+	border-style: dashed;
+}
+
+ul.media-grid {
+    list-style-type: none;
+		li {
+			display: list-item;
+	    float: left;
+	    width: 120px;
+	    height: 120px;
+			position: relative;
+		}
 }

@@ -1,0 +1,22 @@
+- title "#{@collection.title} Collection"
+
+- content_for :head do
+  = javascript_include_tag "photo_ops", "collections"
+  = stylesheet_link_tag "collections"
+
+.row
+  .span3
+    #modes.buttons.well
+      %a#manage{:class => 'btn', :href => '#'}= 'Manage Photos'
+      #edit-modes{:style => 'display: none;'}
+        = link_to 'Edit Properties', edit_collection_path(@collection), :class => 'btn'
+        %a#manage-done{:class => 'btn primary', :href => '#'}= 'Done'
+    .well
+      #operations
+        %p#selection-info
+        %a#remove-photos{:class => 'btn danger', :href => '#',
+          :data => {:remove_photos_path => collection_remove_photos_path(@collection) + '.json'}}= 'Remove from collection'
+  .span13
+    %script{:type => "text/html", :id => "photo_template"}= render "photos_list"
+    = render "photos_list", :mustache => @collection
+

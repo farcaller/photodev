@@ -53,7 +53,7 @@ end
 
 Given /^I am logged in as "([^"]*)" and password "([^"]*)"$/ do |username, password|
   steps %Q{
-    Given there is user "#{username}" registered with email "test@user.net"
+    Given there is user "#{username}" registered with email "test#{Random.rand(1000)}@user.net"
     And I sign in with "#{username}" and password "#{password}"
   }
 end
@@ -61,4 +61,8 @@ end
 Then /^I should see a flash message stating that logout is successful$/ do
   current_path.should == root_path
   page.should have_content('Signed out successfully')
+end
+
+When /^I sign out$/ do
+  steps 'When I click on link "Sign out"'
 end

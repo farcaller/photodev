@@ -1,0 +1,9 @@
+<ul id="photos" class="media-grid">
+  {{#photo_in_collections}}
+  <li>
+    <a class="thumbnail-ref photo" href="{{url}}" data-id="{{id}}" data-index="{{position}}">
+      <img src="{{photo.image.thumb.url}}" class="thumbnail" />
+    </a>
+  </li>
+  {{/photo_in_collections}}
+</ul>

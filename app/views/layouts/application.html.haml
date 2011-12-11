@@ -14,7 +14,7 @@
           - if user_signed_in?
             %ul.nav
               %li{:class => (controller_name == 'photostreams' ? 'active' : '')}= link_to "Photostream", photostream_path
-              %li{:class => (controller_name == 'collections' ? 'active' : '')}= link_to "Collections", 'collections_path'
+              %li{:class => (controller_name == 'collections' ? 'active' : '')}= link_to "Collections", collections_path
             
             %ul.nav.secondary-nav
               %li.dropdown
@@ -25,7 +25,8 @@
                   %li= link_to "Sign out", destroy_user_session_path, :method => :delete
           - else
             %ul.nav.secondary-nav
-              %li= link_to "Sign up", new_user_registration_path
+              - if not Rails.env.production?
+                %li= link_to "Sign up", new_user_registration_path
               %li= link_to "Sign in", new_user_session_path
     .container
       - flash.each do |name, msg|

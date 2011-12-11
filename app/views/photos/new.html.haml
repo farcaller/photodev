@@ -1,0 +1,10 @@
+- title 'New Photo', false
+
+= twitter_bootstrap_form_for(@photo) do |f|
+  = f.inputs do
+    = f.text_field :title
+    = f.file_field :image
+  
+  = f.actions do
+    = f.submit 'Upload Photo'
+    = link_to 'Cancel', photostream_path, :class => 'btn'

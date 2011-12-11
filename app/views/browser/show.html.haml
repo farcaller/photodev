@@ -1,0 +1,8 @@
+- title @photo.title, false
+
+.row
+  .span3
+    .well
+  .span13
+    = image_tag @photo.image_url(:browser).to_s, :class => ['thumbnail', 'floating-thumb']
+
