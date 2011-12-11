@@ -41,6 +41,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bootstrap-sass (1.3.2)
       sass-rails (~> 3.1.0)
+    bson (1.4.0)
+    bson_ext (1.4.0)
     builder (3.0.0)
     cancan (1.6.7)
     capistrano (2.9.0)
@@ -128,6 +130,18 @@ GEM
     mime-types (1.17.2)
     mini_magick (3.3)
       subexec (~> 0.1.0)
+    mongo (1.4.0)
+      bson (= 1.4.0)
+    mongodb_logger (0.2.2)
+      activesupport (>= 3.0.0)
+      bson_ext (~> 1.4.0)
+      erubis (>= 2.6.6)
+      i18n (>= 0.4.1)
+      json (~> 1.6.1)
+      mongo (~> 1.4.0)
+      rake (~> 0.9.0)
+      sinatra (>= 1.2.0)
+      vegas (~> 0.1.2)
     multi_json (1.0.3)
     mustache (0.99.4)
     mysql2 (0.3.11)
@@ -154,6 +168,8 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-protection (1.1.4)
+      rack
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -208,6 +224,10 @@ GEM
       json_pure
       rubyzip
     sexp_processor (3.0.7)
+    sinatra (1.3.1)
+      rack (~> 1.3, >= 1.3.4)
+      rack-protection (~> 1.1, >= 1.1.2)
+      tilt (~> 1.3, >= 1.3.3)
     slop (2.1.0)
     sprockets (2.0.3)
       hike (~> 1.2)
@@ -236,6 +256,8 @@ GEM
       rack
       raindrops (~> 0.6)
     uuidtools (2.1.2)
+    vegas (0.1.8)
+      rack (>= 1.0.0)
     warden (1.0.6)
       rack (>= 1.0)
     xpath (0.1.4)
@@ -265,6 +287,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   mini_magick
+  mongodb_logger
   mustache
   mysql2
   pry
