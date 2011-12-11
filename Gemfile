@@ -15,7 +15,6 @@ gem 'uuidtools'
 gem 'acts_as_list', :git => 'https://github.com/swanandp/acts_as_list.git'
 gem 'capistrano'
 gem 'unicorn'
-gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -44,4 +43,9 @@ end
 
 group :development do
   gem 'pry-doc'
+end
+
+group :production do
+  gem 'therubyracer'
+  gem 'mysql2'
 end

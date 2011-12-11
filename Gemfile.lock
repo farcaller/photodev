@@ -130,6 +130,7 @@ GEM
       subexec (~> 0.1.0)
     multi_json (1.0.3)
     mustache (0.99.4)
+    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -265,6 +266,7 @@ DEPENDENCIES
   launchy
   mini_magick
   mustache
+  mysql2
   pry
   pry-doc
   rails (= 3.1.1)
