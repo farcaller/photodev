@@ -17,8 +17,8 @@ Feature: User browses collection
     And I create a public collection named "test public"
     And I click on link "Collections"
     Then I should see 2 collections
-    And I shoud see a collection named "test private"
-    And I shoud see a collection named "test private"
+    And I should see a collection named "test private"
+    And I should see a collection named "test private"
   
   Scenario: Browse own collection
     Given I am logged in as "testuser" and password "helloworld"
@@ -33,6 +33,7 @@ Feature: User browses collection
     And I sign out
     And I navigate to stored collection path
     Then I should be on the page for collection titled "test public"
+    And I should not see the management UI
   
   Scenario: Fail to browse a private collection of other user when anonymous
     Given I am logged in as "testuser" and password "helloworld"

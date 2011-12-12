@@ -29,7 +29,7 @@ Then /^I should see (\d+) collections$/ do |number_of_collections|
   all('ul#collections li').count.should == number_of_collections.to_i+1
 end
 
-Then /^I shoud see a collection named "([^"]*)"$/ do |name|
+Then /^I should see a collection named "([^"]*)"$/ do |name|
   all('ul#collections li').map {|t| t.has_content?(name) ? t : nil}.compact[0].should_not be_nil
 end
 
@@ -46,3 +46,6 @@ Then /^I should see a link "([^"]*)"$/ do |link_name|
   find_link(link_name).should_not be_nil
 end
 
+Then /^I should not see the management UI$/ do
+  page.should_not have_content('Manage Photos')
+end
