@@ -17,8 +17,8 @@ Feature: User browses collection
     And I create a public collection named "test public"
     And I click on link "Collections"
     Then I should see 2 collections
-    And I shoud see a collection named "test private"
-    And I shoud see a collection named "test private"
+    And I should see a collection named "test private"
+    And I should see a collection named "test private"
   
   Scenario: Browse own collection
     Given I am logged in as "testuser" and password "helloworld"
