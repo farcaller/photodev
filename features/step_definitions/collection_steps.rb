@@ -46,3 +46,6 @@ Then /^I should see a link "([^"]*)"$/ do |link_name|
   find_link(link_name).should_not be_nil
 end
 
+Then /^I should not see the management UI$/ do
+  page.should_not have_content('Manage Photos')
+end

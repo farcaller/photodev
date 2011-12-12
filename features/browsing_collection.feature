@@ -33,6 +33,7 @@ Feature: User browses collection
     And I sign out
     And I navigate to stored collection path
     Then I should be on the page for collection titled "test public"
+    And I should not see the management UI
   
   Scenario: Fail to browse a private collection of other user when anonymous
     Given I am logged in as "testuser" and password "helloworld"
